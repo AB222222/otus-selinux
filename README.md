@@ -1,6 +1,6 @@
-#1. Запускаем nginx на нестандартных портах
+# 1. Запускаем nginx на нестандартных портах
 
-##Вариант 1. Меняем порт 80 в файле /etc/nginx/nginx.conf на 5080.
+## Вариант 1. Меняем порт 80 в файле /etc/nginx/nginx.conf на 5080.
 
 Рестарт не проходит:
 
@@ -81,7 +81,7 @@ tcp6       0      0 ::1:25                  :::*                    LISTEN      
 ```
 И nginx уже не запускается.
 
-##Вариант 2. Добавление нестандартного порта к имеющимся.
+## Вариант 2. Добавление нестандартного порта к имеющимся.
 
 ```
 [root@localhost nginx]# semanage port -l | grep http
@@ -137,7 +137,7 @@ Job for nginx.service failed because the control process exited with error code.
 [root@localhost nginx]# 
 ```
 
-##Вариант 3. Формирование и установка модуля SELinux.
+## Вариант 3. Формирование и установка модуля SELinux.
 
 ```
 [root@localhost nginx]# audit2allow -M httpd_add --debug < /var/log/audit/audit.log
@@ -172,7 +172,7 @@ httpd_add	1.0
 
 
 
-#2. Обеспечить работоспособность приложения при включенном selinux.
+# 2. Обеспечить работоспособность приложения при включенном selinux.
 
 ```
 me@me-HP-260-G3-DM:~/otus-linux/DZ20210116-2/otus-linux-adm/selinux_dns_problems$ vagrant status
